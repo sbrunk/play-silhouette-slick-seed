@@ -25,6 +25,8 @@ Currently, there is no live example of this template.
 * Avatar service
 * Remember me functionality
 * play-slick database access
+* [Security headers](https://www.playframework.com/documentation/2.4.x/SecurityHeaders)
+* [CSRF Protection](https://www.playframework.com/documentation/2.4.x/ScalaCsrf)
 
 ## Documentation
 
