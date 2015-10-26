@@ -1,4 +1,4 @@
-package controllers
+package controllers.silhouette
 
 import javax.inject.Inject
 
@@ -8,6 +8,7 @@ import com.mohiva.play.silhouette.impl.providers.SocialProviderRegistry
 import forms._
 import models.User
 import play.api.i18n.MessagesApi
+//import controllers.silhouette.routes
 
 import scala.concurrent.Future
 

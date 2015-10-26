@@ -1,4 +1,4 @@
-package controllers
+package controllers.silhouette
 
 import java.util.UUID
 import javax.inject.Inject

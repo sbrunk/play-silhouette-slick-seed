@@ -1,4 +1,4 @@
-package controllers
+package controllers.silhouette
 
 import javax.inject.Inject
 
