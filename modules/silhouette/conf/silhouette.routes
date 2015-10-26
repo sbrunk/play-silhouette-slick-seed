@@ -1,7 +1,7 @@
-GET         /                                @controllers.silhouette.ApplicationController.index
-GET         /signIn                          @controllers.silhouette.ApplicationController.signIn
-GET         /signUp                          @controllers.silhouette.ApplicationController.signUp
-GET         /signOut                         @controllers.silhouette.ApplicationController.signOut
+GET         /                                @controllers.silhouette.SilhouetteController.index
+GET         /signIn                          @controllers.silhouette.SilhouetteController.signIn
+GET         /signUp                          @controllers.silhouette.SilhouetteController.signUp
+GET         /signOut                         @controllers.silhouette.SilhouetteController.signOut
 GET         /authenticate/:provider          @controllers.silhouette.SocialAuthController.authenticate(provider)
 POST        /authenticate/credentials        @controllers.silhouette.CredentialsAuthController.authenticate
 POST        /signUp                          @controllers.silhouette.SignUpController.signUp

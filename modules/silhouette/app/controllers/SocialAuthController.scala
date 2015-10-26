@@ -49,7 +49,7 @@ class SocialAuthController @Inject() (
             authInfo <- authInfoRepository.save(profile.loginInfo, authInfo)
             authenticator <- env.authenticatorService.create(profile.loginInfo)
             value <- env.authenticatorService.init(authenticator)
-            result <- env.authenticatorService.embed(value, Redirect(routes.ApplicationController.index()))
+            result <- env.authenticatorService.embed(value, Redirect(routes.SilhouetteController.index()))
           } yield {
             env.eventBus.publish(LoginEvent(user, request, request2Messages))
             result
@@ -59,7 +59,7 @@ class SocialAuthController @Inject() (
     }).recover {
       case e: ProviderException =>
         logger.error("Unexpected provider error", e)
-        Redirect(routes.ApplicationController.signIn()).flashing("error" -> Messages("could.not.authenticate"))
+        Redirect(routes.SilhouetteController.signIn()).flashing("error" -> Messages("could.not.authenticate"))
     }
   }
 }

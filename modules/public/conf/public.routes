@@ -1,0 +1,1 @@
+GET         /public                           @controllers.public.PublicController.index
