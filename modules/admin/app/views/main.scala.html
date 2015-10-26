@@ -1,5 +1,5 @@
 @(title: String, user: Option[models.User] = None)(content: Html)(implicit messages: Messages)
-@import controllers.admin.{ routes => adminRoutes }
+@import controllers.silhouette.{ routes => silhouetteRoutes }
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,20 +29,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@adminRoutes.ApplicationController.index">Silhouette Seed Template</a>
+                    <a class="navbar-brand" href="@silhouetteRoutes.SilhouetteController.index">Silhouette Seed Template</a>
                 </div>
                 <nav class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="@adminRoutes.ApplicationController.index">@Messages("home")</a></li>
+                        <li><a href="@silhouetteRoutes.SilhouetteController.index">@Messages("home")</a></li>
                         <li><a href="https://github.com/mohiva/play-silhouette-seed">GitHub</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @user.map { u =>
-                            <li><a href="@adminRoutes.ApplicationController.index">@u.fullName</a></li>
-                            <li><a href="@adminRoutes.ApplicationController.signOut">@Messages("sign.out")</a></li>
+                            <li><a href="@silhouetteRoutes.SilhouetteController.index">@u.fullName</a></li>
+                            <li><a href="@silhouetteRoutes.SilhouetteController.signOut">@Messages("sign.out")</a></li>
                         }.getOrElse {
-                            <li><a href="@adminRoutes.ApplicationController.signIn">@Messages("sign.in")</a></li>
-                            <li><a href="@adminRoutes.ApplicationController.signUp">@Messages("sign.up")</a></li>
+                            <li><a href="@silhouetteRoutes.SilhouetteController.signIn">@Messages("sign.in")</a></li>
+                            <li><a href="@silhouetteRoutes.SilhouetteController.signUp">@Messages("sign.up")</a></li>
                         }
                     </ul>
                 </nav>

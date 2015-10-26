@@ -12,12 +12,14 @@ libraryDependencies ++= Seq(
   cache
 )
 
+lazy val admin      = (project in file("modules/admin"))     .enablePlugins(PlayScala).dependsOn(silhouette)
+lazy val open       = (project in file("modules/open"))      .enablePlugins(PlayScala).dependsOn(silhouette)
 lazy val silhouette = (project in file("modules/silhouette")).enablePlugins(PlayScala)
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
-  .dependsOn(silhouette)
-  .aggregate(silhouette)
+  .aggregate(admin, open, silhouette)
+  .dependsOn(admin, open, silhouette)
 
 routesGenerator := InjectedRoutesGenerator
 

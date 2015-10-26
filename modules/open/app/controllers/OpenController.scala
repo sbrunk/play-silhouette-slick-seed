@@ -1,4 +1,4 @@
-package controllers.public
+package controllers.open
 
 import com.mohiva.play.silhouette.api.{ Environment, Silhouette }
 import com.mohiva.play.silhouette.impl.authenticators.CookieAuthenticator
@@ -12,7 +12,7 @@ import scala.concurrent.Future
   * @param messagesApi Localized messages for this webapp.
   * @param env The Silhouette environment.
   * @param socialProviderRegistry The social provider registry. */
-class PublicController @Inject() (
+class OpenController @Inject() (
   val messagesApi: MessagesApi,
   val env: Environment[User, CookieAuthenticator],
   socialProviderRegistry: SocialProviderRegistry)
@@ -20,6 +20,6 @@ class PublicController @Inject() (
 
   /** Handles administrative user functions. */
   def index = SecuredAction.async { implicit request =>
-    Future.successful(Ok(views.html.publicHome(request.identity)))
+    Future.successful(Ok(views.html.openHome(request.identity)))
   }
 }
