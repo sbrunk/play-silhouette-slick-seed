@@ -18,8 +18,8 @@ class OpenController @Inject() (
   socialProviderRegistry: SocialProviderRegistry)
   extends Silhouette[User, CookieAuthenticator] {
 
-  /** Handles administrative user functions. */
-  def index = SecuredAction.async { implicit request =>
+  /** Handles unauthenticated user actions. */
+  def index = UserAwareAction.async { implicit request =>
     Future.successful(Ok(views.html.openHome(request.identity)))
   }
 }

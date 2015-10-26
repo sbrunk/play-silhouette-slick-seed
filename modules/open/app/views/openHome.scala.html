@@ -1,30 +1,13 @@
-@(user: models.User)(implicit messages: Messages)
-@import controllers.silhouette.{ routes => silhouetteRoutes }
-@main(Messages("home.title"), Some(user)) {
-    <div class="user col-md-6 col-md-offset-3">
+@import models.User
+@(maybeUser: Option[User])(implicit messages: Messages)
+@main(Messages("home.title"), maybeUser) {
+  <div class="user col-md-6 col-md-offset-3">
+    <div class="row data">
+      <div class="col-md-12">
         <div class="row">
-            <hr class="col-md-12" />
-            <h4 class="col-md-8">@Messages("welcome.signed.in")</h4>
-            <div class="col-md-4 text-right">
-                <img src="@user.avatarURL.getOrElse(routes.Assets.at("images/silhouette.png"))" height="40px" />
-            </div>
-            <hr class="col-md-12" />
+          <p class="col-md-12">This is the front page, rendered by the an view template in the <code>open</code> SBT subproject.</p>
         </div>
-        <div class="row data">
-            <div class="col-md-12">
-                <div class="row">
-                    <p class="col-md-6"><strong>@Messages("first.name"):</strong></p><p class="col-md-6">@user.firstName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@Messages("last.name"):</strong></p><p class="col-md-6">@user.lastName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@Messages("full.name"):</strong></p><p class="col-md-6">@user.fullName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@Messages("email"):</strong></p><p class="col-md-6">@user.email.getOrElse("None")</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 }

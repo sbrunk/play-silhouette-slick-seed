@@ -1,1 +1,1 @@
-GET         /open                           @controllers.open.OpenController.index
+GET         /                           @controllers.open.OpenController.index

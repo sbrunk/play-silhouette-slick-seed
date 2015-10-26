@@ -3,14 +3,13 @@ package utils
 import javax.inject.Inject
 
 import com.mohiva.play.silhouette.api.SecuredErrorHandler
-import controllers.silhouette.routes
+import controllers.auth.routes
 import play.api.http.DefaultHttpErrorHandler
 import play.api.i18n.Messages
 import play.api.mvc.Results._
 import play.api.mvc.{ Result, RequestHeader }
 import play.api.routing.Router
 import play.api.{ OptionalSourceMapper, Configuration }
-
 import scala.concurrent.Future
 
 /**

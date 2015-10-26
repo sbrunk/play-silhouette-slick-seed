@@ -1,30 +1,20 @@
-import scalariform.formatter.preferences._
-
 name := "play-silhouette-slick-seed"
 
 Common.settings
 
-libraryDependencies ++= Seq(
-  cache
-)
-
-lazy val admin      = (project in file("modules/admin"))     .enablePlugins(PlayScala).dependsOn(silhouette)
-lazy val open       = (project in file("modules/open"))      .enablePlugins(PlayScala).dependsOn(silhouette)
-lazy val silhouette = (project in file("modules/silhouette")).enablePlugins(PlayScala)
+lazy val admin = (project in file("modules/admin")).enablePlugins(PlayScala).dependsOn(auth)
+lazy val open  = (project in file("modules/open")) .enablePlugins(PlayScala).dependsOn(auth)
+lazy val auth  = (project in file("modules/auth")) .enablePlugins(PlayScala)
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
-  .aggregate(admin, open, silhouette)
-  .dependsOn(admin, open, silhouette)
+  .aggregate(admin, open)
+  .dependsOn(admin, open)
 
 routesGenerator := InjectedRoutesGenerator
 
-//********************************************************
-// Scalariform settings
-//********************************************************
-
+import scalariform.formatter.preferences._
 defaultScalariformSettings
-
 ScalariformKeys.preferences := ScalariformKeys.preferences.value
   .setPreference(FormatXml, false)
   .setPreference(DoubleIndentClassDeclaration, false)

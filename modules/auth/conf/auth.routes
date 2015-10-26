@@ -1,0 +1,11 @@
+GET         /welcome                         @controllers.auth.SilhouetteController.index
+GET         /signIn                          @controllers.auth.SilhouetteController.signIn
+GET         /signUp                          @controllers.auth.SilhouetteController.signUp
+GET         /signOut                         @controllers.auth.SilhouetteController.signOut
+GET         /authenticate/:provider          @controllers.auth.SocialAuthController.authenticate(provider)
+POST        /authenticate/credentials        @controllers.auth.CredentialsAuthController.authenticate
+POST        /signUp                          @controllers.auth.SignUpController.signUp
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                    controllers.Assets.at(path="/public", file)
+GET         /webjars/*file                   controllers.WebJarAssets.at(file)

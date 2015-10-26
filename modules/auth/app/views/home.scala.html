@@ -1,5 +1,5 @@
 @(user: models.User)(implicit messages: Messages)
-@import controllers.silhouette.{ routes => silhouetteRoutes }
+@import controllers.auth.{ routes => authRoutes }
 @main(Messages("home.title"), Some(user)) {
     <div class="user col-md-6 col-md-offset-3">
         <div class="row">

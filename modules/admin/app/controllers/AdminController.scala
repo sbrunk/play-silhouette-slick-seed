@@ -20,7 +20,7 @@ class AdminController @Inject() (
   socialProviderRegistry: SocialProviderRegistry)
   extends Silhouette[User, CookieAuthenticator] {
 
-  /** Handles administrative user functions. */
+  /** Handle administrative user functions. */
   def index = SecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.adminHome(request.identity)))
   }

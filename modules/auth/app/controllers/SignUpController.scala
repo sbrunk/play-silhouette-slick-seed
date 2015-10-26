@@ -1,8 +1,7 @@
-package controllers.silhouette
+package controllers.auth
 
 import java.util.UUID
 import javax.inject.Inject
-
 import com.mohiva.play.silhouette.api._
 import com.mohiva.play.silhouette.api.repositories.AuthInfoRepository
 import com.mohiva.play.silhouette.api.services.AvatarService
@@ -15,7 +14,6 @@ import models.services.UserService
 import play.api.i18n.{ MessagesApi, Messages }
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.mvc.Action
-
 import scala.concurrent.Future
 
 /**

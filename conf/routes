@@ -2,8 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Delegate most routes to Silhouette subproject
--> / silhouette.Routes
+# Delegate routes to subprojects
+-> / open.Routes
+-> /admin admin.Routes
+-> /auth auth.Routes
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                    controllers.Assets.at(path="/public", file)
