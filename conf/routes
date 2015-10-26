@@ -1,12 +1,10 @@
-# Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~
+# Define all application routes (Higher priority routes first)
 
 # Delegate routes to subprojects
--> / open.Routes
--> /admin admin.Routes
--> /auth auth.Routes
+->    /               open.Routes
+->    /admin          admin.Routes
+->    /auth           auth.Routes
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                    controllers.Assets.at(path="/public", file)
-GET         /webjars/*file                   controllers.WebJarAssets.at(file)
+GET   /assets/*file   controllers.Assets.at(path="/public", file)
+GET   /webjars/*file  controllers.WebJarAssets.at(file)
