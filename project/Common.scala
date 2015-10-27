@@ -33,7 +33,7 @@ object Common {
       cache,
 		  filters,
 		  "com.mohiva"        %% "play-silhouette"         % "3.0.0" withSources(),
-		  "org.webjars"       %% "webjars-play"            % "2.4.0-1" withSources()
+		  "org.webjars"       %% "webjars-play"            % "2.4.0-2" withSources()
 		)
   )
 }
