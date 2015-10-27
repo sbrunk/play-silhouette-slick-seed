@@ -6,8 +6,8 @@ object DB {
   val settings: Seq[Setting[_]] = Seq(
     libraryDependencies ++= Seq(
       "com.h2database"    %  "h2"                      % "1.4.188" withSources(),
-      "com.typesafe.play" %% "play-slick"              % "1.0.1" withSources(),
-      "com.typesafe.play" %% "play-slick-evolutions"   % "1.0.1" withSources()
+      "com.typesafe.play" %% "play-slick"              % "1.1.0" withSources(),
+      "com.typesafe.play" %% "play-slick-evolutions"   % "1.1.0" withSources()
     )
   )
 }

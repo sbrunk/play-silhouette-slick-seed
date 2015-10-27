@@ -8,7 +8,6 @@ import com.mohiva.play.silhouette.impl.providers.SocialProviderRegistry
 import forms._
 import models.User
 import play.api.i18n.MessagesApi
-
 import scala.concurrent.Future
 
 /**
@@ -27,6 +26,8 @@ class SilhouetteController @Inject() (
   /** Index action handler.
     * @return Future of the rendered index page. */
   def index = SecuredAction.async { implicit request =>
+
+
     Future.successful(Ok(views.html.home(request.identity)))
   }
 

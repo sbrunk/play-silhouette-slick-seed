@@ -8,6 +8,21 @@ import models.User
 import play.api.i18n.MessagesApi
 import scala.concurrent.Future
 
+/*
+import play.api._
+import play.api.mvc._
+import play.api.routing._
+import play.api.ApplicationLoader.Context
+import router.Routes
+class MyComponents(context: Context) extends BuiltInComponentsFromContext(context) {
+  lazy val router = new Routes(httpErrorHandler, applicationController, barRoutes, assets)
+
+  lazy val barRoutes = new bar.Routes(httpErrorHandler)
+  lazy val applicationController = new controllers.Application()
+  lazy val assets = new controllers.Assets(httpErrorHandler)
+}
+*/
+
 /** Controls actions that do not require authenticated users.
   * @param messagesApi Localized messages for this webapp.
   * @param env The Silhouette environment.
