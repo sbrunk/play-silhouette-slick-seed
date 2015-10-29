@@ -1,4 +1,4 @@
-package controllers
+package controllers.auth
 
 import javax.inject.Inject
 
@@ -8,7 +8,6 @@ import com.mohiva.play.silhouette.impl.providers.SocialProviderRegistry
 import forms._
 import models.User
 import play.api.i18n.MessagesApi
-
 import scala.concurrent.Future
 
 /**
@@ -18,18 +17,17 @@ import scala.concurrent.Future
  * @param env The Silhouette environment.
  * @param socialProviderRegistry The social provider registry.
  */
-class ApplicationController @Inject() (
+class SilhouetteController @Inject() (
   val messagesApi: MessagesApi,
   val env: Environment[User, CookieAuthenticator],
   socialProviderRegistry: SocialProviderRegistry)
   extends Silhouette[User, CookieAuthenticator] {
 
-  /**
-   * Handles the index action.
-   *
-   * @return The result to display.
-   */
+  /** Index action handler.
+    * @return Future of the rendered index page. */
   def index = SecuredAction.async { implicit request =>
+
+
     Future.successful(Ok(views.html.home(request.identity)))
   }
 
@@ -40,8 +38,8 @@ class ApplicationController @Inject() (
    */
   def signIn = UserAwareAction.async { implicit request =>
     request.identity match {
-      case Some(user) => Future.successful(Redirect(routes.ApplicationController.index()))
-      case None => Future.successful(Ok(views.html.signIn(SignInForm.form, socialProviderRegistry)))
+      case Some(user) => Future.successful(Redirect(routes.SilhouetteController.index()))
+      case None       => Future.successful(Ok(views.html.signIn(SignInForm.form, socialProviderRegistry)))
     }
   }
 
@@ -52,8 +50,8 @@ class ApplicationController @Inject() (
    */
   def signUp = UserAwareAction.async { implicit request =>
     request.identity match {
-      case Some(user) => Future.successful(Redirect(routes.ApplicationController.index()))
-      case None => Future.successful(Ok(views.html.signUp(SignUpForm.form)))
+      case Some(user) => Future.successful(Redirect(routes.SilhouetteController.index()))
+      case None       => Future.successful(Ok(views.html.signUp(SignUpForm.form)))
     }
   }
 
@@ -63,9 +61,8 @@ class ApplicationController @Inject() (
    * @return The result to display.
    */
   def signOut = SecuredAction.async { implicit request =>
-    val result = Redirect(routes.ApplicationController.index())
+    val result = Redirect(routes.SilhouetteController.index())
     env.eventBus.publish(LogoutEvent(request.identity, request, request2Messages))
-
     env.authenticatorService.discard(request.authenticator, result)
   }
 }

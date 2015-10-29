@@ -1,16 +1,10 @@
-# Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~
+# Define all application routes (Higher priority routes first)
 
-# Home page
-GET         /                                controllers.ApplicationController.index
-GET         /signIn                          controllers.ApplicationController.signIn
-GET         /signUp                          controllers.ApplicationController.signUp
-GET         /signOut                         controllers.ApplicationController.signOut
-GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
-POST        /authenticate/credentials        controllers.CredentialsAuthController.authenticate
-POST        /signUp                          controllers.SignUpController.signUp
+# Delegate routes to subprojects
+->    /               open.Routes
+->    /admin          admin.Routes
+->    /auth           auth.Routes
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                    controllers.Assets.at(path="/public", file)
-GET         /webjars/*file                   controllers.WebJarAssets.at(file)
+GET   /assets/*file   controllers.Assets.at(path="/public", file)
+GET   /webjars/*file  controllers.WebJarAssets.at(file)

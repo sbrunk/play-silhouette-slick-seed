@@ -1,5 +1,5 @@
 @(title: String, user: Option[models.User] = None)(content: Html)(implicit messages: Messages)
-
+@import controllers.auth.routes. { SilhouetteController => authRoutes }
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,20 +29,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@routes.ApplicationController.index">Silhouette Seed Template</a>
+                    <a class="navbar-brand" href="/">Silhouette Seed Template</a>
                 </div>
                 <nav class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="@routes.ApplicationController.index">@Messages("home")</a></li>
-                        <li><a href="https://github.com/mohiva/play-silhouette-seed">GitHub</a></li>
+                        <li><a href="/admin">@Messages("admin")</a></li>
+                        <li><a href="https://github.com/mslinn/play-silhouette-slick-seed" target="psss">GitHub</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @user.map { u =>
-                            <li><a href="@routes.ApplicationController.index">@u.fullName</a></li>
-                            <li><a href="@routes.ApplicationController.signOut">@Messages("sign.out")</a></li>
+                            <li><a href="@authRoutes.index">@u.fullName</a></li>
+                            <li><a href="@authRoutes.signOut">@Messages("sign.out")</a></li>
                         }.getOrElse {
-                            <li><a href="@routes.ApplicationController.signIn">@Messages("sign.in")</a></li>
-                            <li><a href="@routes.ApplicationController.signUp">@Messages("sign.up")</a></li>
+                            <li><a href="@authRoutes.signIn">@Messages("sign.in")</a></li>
+                            <li><a href="@authRoutes.signUp">@Messages("sign.up")</a></li>
                         }
                     </ul>
                 </nav>

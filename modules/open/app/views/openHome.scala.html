@@ -1,0 +1,13 @@
+@import models.User
+@(maybeUser: Option[User])(implicit messages: Messages)
+@main(Messages("open.title"), maybeUser) {
+  <div class="user col-md-6 col-md-offset-3">
+    <div class="row data">
+      <div class="col-md-12">
+        <div class="row">
+          <p class="col-md-12">This is the front page, rendered by a view template in the <code>open</code> SBT subproject.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+}
